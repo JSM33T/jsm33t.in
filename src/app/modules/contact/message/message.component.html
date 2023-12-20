@@ -1,0 +1,68 @@
+<section class="container pt-5 pb-lg-2 pb-xl-4 py-xxl-5 my-5">
+
+  <!-- Breadcrumb-->
+  <nav aria-label="breadcrumb">
+    <ol class="pt-lg-3 pb-lg-4 pb-2 breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Contacts</li>
+    </ol>
+  </nav>
+
+  <div class="row pb-1 pb-sm-3 pb-lg-4">
+    <div class="col-lg-4 pe-xxl-4">
+
+      <!-- Page title -->
+      <h1 class="display-2" data-aos="flip-up" data-aos-duration="300">Contacts</h1>
+      <p class="fs-lg pb-4 mb-0 mb-sm-2">Get in touch</p>
+    </div>
+    <div class="col-lg-8 col-xl-7 offset-xl-1">
+
+      <!-- Contact form -->
+      <form class="row g-4" #messageForm="ngForm" (ngSubmit)="onSubmit(messageForm)">
+        <div class="col-sm-6">
+          <label class="form-label fs-base" for="name">Name</label>
+          <input class="form-control form-control-lg" type="text" placeholder="Your name" required name="name" ngModel>
+        </div>
+        <div class="col-sm-6">
+          <label class="form-label fs-base" for="email">Email</label>
+          <input class="form-control form-control-lg" type="email" placeholder="Email(optional)" name="email" ngModel>
+        </div>
+        <div class="col-sm-6">
+          <label class="form-label fs-base" for="topic">Topic</label>
+          <select class="form-select form-select-lg" name="topic" ngModel>
+            <option value="general">General</option>
+            <option value="message">Message</option>
+            <option value="contribution">Contribution</option>
+            <option value="report">Report</option>
+            <option value="suggestions">Suggestions</option>
+          </select>
+        </div>
+        <div class="col-sm-12">
+          <label class="form-label fs-base" for="message">How can we help?</label>
+          <input class="form-control form-control-lg" rows="5" placeholder="Enter your message here..." name="message"
+            ngModel required />
+          <div class="invalid-feedback">Please enter your message!</div>
+        </div>
+        <div class="col-sm-12">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="agree" ngModel>
+            <label class="form-check-label" for="agree">I agree to the <a
+                class="nav-link d-inline fs-normal text-decoration-underline p-0" href="#">Terms &amp;
+                Conditions</a></label>
+          </div>
+        </div>
+        <div class="col-sm-12 pt-2">
+          <button class="btn btn-primary" type="submit" [disabled]="loading" [class.pe-none]="loading" name="subscribe">
+            <span *ngIf="!loading">Send Message</span>
+            <span *ngIf="loading">
+              <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+              Loading...
+            </span>
+          </button>
+          <!-- <button class="btn btn-lg btn-primary" type="submit">Send a request</button> -->
+        </div>
+      </form>
+    </div>
+
+  </div>
+</section>

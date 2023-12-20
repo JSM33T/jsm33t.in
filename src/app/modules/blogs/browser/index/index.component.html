@@ -1,0 +1,82 @@
+<div class="container pt-5 pb-lg-5 pb-md-4 pb-2 my-5">
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb">
+    <ol class="pt-lg-3 pb-lg-4 pb-2 breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Blog</li>
+    </ol>
+  </nav>
+
+  <div class="row mb-md-2 mb-xl-4">
+    <!-- Blog posts -->
+    <div class="col-lg-9 pe-lg-4 pe-xl-5">
+      <h1 class="pb-3 pb-lg-4">Blog browser skeleton</h1>
+      <div *ngFor="let blog of blogs" class="row g-0 border-0 pt-3 pt-sm-0 mb-4">
+        <a class="col-sm-5 bg-repeat-0 bg-size-cover bg-position-center rounded-5"
+          [style.background-image]="('url(https://localhost:7263/content/blogs/2023/' + blog.slug + '/cover.jpg)')"
+          [style.min-height]="'14rem'" href="blog-single-v2.html" aria-label="Post image"></a>
+        <div class="col-sm-7">
+          <div class="pt-4 pb-sm-4 ps-sm-4 pe-lg-4">
+            <h3>
+              <a [href]="blog.url">{{ blog.title }}</a>
+            </h3>
+            <p class="d-sm-none d-md-block">{{ blog.description }}</p>
+            <div class="d-flex flex-wrap align-items-center mt-n2">
+              <a class="nav-link text-body-secondary fs-sm fw-normal p-0 mt-2 me-3" href="#">
+                {{ blog.likes }}
+                <i class="ai-heart fs-lg ms-1"></i>
+              </a>
+              <a class="nav-link text-body-secondary fs-sm fw-normal d-flex align-items-end p-0 mt-2" href="#">
+                {{ blog.comments }}
+                <i class="ai-message fs-lg ms-1"></i>
+              </a>
+              <span class="fs-xs opacity-20 mt-2 mx-3">|</span>
+              <span class="fs-sm text-body-secondary mt-2">{{ blog.date }}</span>
+              <span class="fs-xs opacity-20 mt-2 mx-3">|</span>
+              <a class="badge text-nav fs-xs border mt-2" [href]="'#category/' + blog.category">{{ blog.category }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="row gy-3 align-items-center mt-lg-5 pt-2 pt-md-4 pt-lg-0">
+        <div class="col col-md-4 col-6 order-md-1 order-1">
+          <div class="d-flex align-items-center">
+            <span class="text-body-secondary fs-sm">Show</span>
+            <select class="form-select form-select-flush w-auto">
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="25">25</option>
+            </select>
+          </div>
+        </div>
+        <div class="col col-md-4 col-12 order-md-2 order-3 text-center">
+          <button class="btn btn-primary w-md-auto w-100" type="button">Load more posts</button>
+        </div>
+        <div class="col col-md-4 col-6 order-md-3 order-2">
+          <nav aria-label="Page navigation">
+            <ul class="pagination pagination-sm justify-content-end">
+              <li class="page-item active" aria-current="page">
+                <span class="page-link">1<span class="visually-hidden">(current)</span></span>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">4</a></li>
+              <li class="page-item"><a class="page-link" href="#">5</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <app-categorylist class="col-lg-3"></app-categorylist>
+  </div>
+</div>
+
+<!-- Sidebar toggle button -->
+<button class="d-lg-none btn btn-sm fs-sm btn-primary w-100 rounded-0 fixed-bottom" type="button"
+  data-bs-toggle="offcanvas" data-bs-target="#sidebarBlog">
+  <i class="ai-layout-column me-2"></i>
+  Sidebar
+</button>

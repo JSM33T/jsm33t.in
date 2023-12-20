@@ -1,0 +1,17 @@
+<ngx-loading-bar color="#496797" height="2px"></ngx-loading-bar>
+<main class="page-wrapper fade-incl">
+  <div class="page-loading">
+    <div class="page-loading-inner active">
+      <div class="page-spinner"></div>
+      <span>Loading...</span>
+    </div>
+  </div>
+  <app-navbar></app-navbar>
+  <div aria-live="polite" id="toast-container" aria-atomic="true"
+    class="d-flex justify-content-center align-items-center"></div>
+  <app-modals></app-modals>
+  <app-sidepanel></app-sidepanel>
+  <router-outlet></router-outlet>
+</main>
+<app-footer></app-footer>
+<app-back-to-top></app-back-to-top>

@@ -1,0 +1,31 @@
+<div class="modal fade" id="something" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Your custom styles</h4>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body py-4">
+                <p class="mb-3">Grab the generated styles below. Wrap them inside
+                    <code>&lt;style&gt;</code> tag and put in the <code>&lt;head&gt;</code> section
+                    of your HTML document.
+                </p>
+                <p class="mb-4"><span class="fw-medium">IMPORTANT:</span> In order for these styles to
+                    take effect you have to placed them
+                    below:<br><code>&lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href=&quot;assets/css/theme.min.css&quot;&gt;</code>
+                </p>
+                <div class="bg-secondary overflow-hidden rounded-4">
+                    <pre class="text-wrap bg-transparent border-0 text-dark p-4" id="custom-generated-styles"></pre>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary w-100 w-sm-auto mb-3 mb-sm-0" type="button"
+                    data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-primary w-100 w-sm-auto ms-sm-3" type="button" id="copy-styles-btn">
+                    <i class="ai-copy me-2 ms-n1"></i>
+                    Copy styles
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
