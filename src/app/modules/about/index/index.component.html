@@ -10,19 +10,17 @@
     </p>
     <div class="d-flex">
       <div class="d-flex">
-        <a class="btn btn-outline-secondary btn-icon btn-sm btn-instagram me-3" target="_blank"
-          href="https://instagram.com/jsm33t"><i class="ai-instagram"></i></a>
-        <a class="btn btn-outline-secondary btn-icon btn-sm btn-facebook me-3" target="_blank"
-          href="https://facebook.com/iamjsm33t"><i class="ai-facebook"></i></a>
-        <a class="btn btn-outline-secondary btn-icon btn-sm btn-youtube" target="_blank"
-          href="https://github.com/jsm33t"><i class="ai-github"></i></a>
+        <a *ngFor="let link of socialLinks"
+          class="btn btn-outline-secondary btn-icon btn-sm {{ 'btn-' + link.platform.toLowerCase() }} me-3"
+          target="_blank" [href]="link.url">
+          <i class="{{ link.icon }}"></i>
+        </a>
       </div>
     </div>
   </div>
 </section>
 
 <section class="container pt-2">
-
   <div class="row py-5 my-md-2 my-lg-3 my-xl-4 my-xxl-5">
     <div class="col-sm-7 mb-4 mb-sm-0">
       <div class="position-relative mb-4">

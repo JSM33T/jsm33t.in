@@ -13,15 +13,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/about/about.module').then((m) => m.AboutModule),
   },
   {
-    path: 'docs',
-    loadChildren: () => import('./modules/docs/docs.module').then((m) => m.DocsModule),
-  },
-  {
     path: 'works',
     loadChildren: () => import('./modules/works/works.module').then((m) => m.WorksModule),
   },
 
-  //blog specific
   {
     path: 'blogs',
     loadChildren: () => import('./modules/blogs/browser/browser.module').then((m) => m.BrowserModule),
