@@ -26,7 +26,7 @@ export class IndexComponent implements OnInit {
       if (method && param) {
         this.apiurl = "blogs/" + method + "/" + param;
       } else {
-        this.apiurl = "blogs/get";
+        this.apiurl = "topblogs/get";
       }
       this.something(this.apiurl);
     });
