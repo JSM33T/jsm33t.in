@@ -10,6 +10,61 @@ function closeAllModals() {
   if (clb) { clb?.click(); }
 }
 
+function initSwiper() {
+  // forEach function
+  const forEach = (array, callback, scope) => {
+    for (let i = 0; i < array.length; i++) {
+      callback.call(scope, i, array[i]); // passes back stuff we need
+    }
+  };
+
+  // Carousel initialisation
+  const carousels = document.querySelectorAll('.swiper');
+  forEach(carousels, (index, value) => {
+    let options;
+    if (value.dataset.swiperOptions != undefined) options = JSON.parse(value.dataset.swiperOptions);
+
+    // Thumbnails
+    if (options.thumbnails) {
+      let images = options.thumbnails.images;
+      options = Object.assign({}, options, {
+        pagination: {
+          el: options.thumbnails.el,
+          clickable: true,
+          bulletActiveClass: 'active',
+          renderBullet: (index, className) => {
+            return `<li class='swiper-thumbnail ${className}'>
+            <img src='${images[index]}' alt='Thumbnail'>
+          </li>`;
+          }
+        }
+      });
+    }
+    const swiper = new Swiper(value, options); // eslint-disable-line no-undef
+
+    // Controlled slider
+    if (options.controlledSlider) {
+      const controlledSlider = document.querySelector(options.controlledSlider);
+      let controlledSliderOptions;
+      if (controlledSlider.dataset.swiperOptions != undefined) controlledSliderOptions = JSON.parse(controlledSlider.dataset.swiperOptions);
+      /* eslint-disable no-undef */
+      const swiperControlled = new Swiper(controlledSlider, controlledSliderOptions);
+      /* eslint-enable no-undef */
+      swiper.controller.control = swiperControlled;
+    }
+
+    // Binded content
+    if (options.bindedContent) {
+      swiper.on('activeIndexChange', e => {
+        const targetItem = document.querySelector(e.slides[e.activeIndex].dataset.swiperBinded);
+        const previousItem = document.querySelector(e.slides[e.previousIndex].dataset.swiperBinded);
+        previousItem.classList.remove('active');
+        targetItem.classList.add('active');
+      });
+    }
+  });
+}
+
 function initShuffle() {
   const grid = document.querySelectorAll('.masonry-grid');
   let masonry: Shuffle;
@@ -233,6 +288,40 @@ function initSmoothScroll() {
 }
 
 
+function initLightGallery() {
+  const gallery = document.querySelectorAll('.gallery');
+  if (gallery.length) {
+    for (let i = 0; i < gallery.length; i++) {
+      /* eslint-disable no-undef */
+      const thumbnails = gallery[i].dataset.thumbnails ? true : false,
+        video = gallery[i].dataset.video ? true : false,
+        defaultPlugins = [lgZoom, lgFullscreen],
+        videoPlugin = video ? [lgVideo] : [],
+        thumbnailPlugin = thumbnails ? [lgThumbnail] : [],
+        plugins = [...defaultPlugins, ...videoPlugin, ...thumbnailPlugin];
+      lightGallery(gallery[i], {
+        selector: '.gallery-item',
+        plugins: plugins,
+        licenseKey: 'D4194FDD-48924833-A54AECA3-D6F8E646',
+        download: false,
+        autoplayVideoOnSlide: true,
+        zoomFromOrigin: false,
+        youtubePlayerParams: {
+          modestbranding: 1,
+          showinfo: 0,
+          rel: 0
+        },
+        vimeoPlayerParams: {
+          byline: 0,
+          portrait: 0,
+          color: '6366f1'
+        }
+      });
+      /* eslint-enable no-undef */
+    }
+  }
+}
+
 export {
   //invoke 3rd party functions
   initAos,
@@ -241,7 +330,8 @@ export {
   initscrollToTop,
   //vendor function
   themeSwitcher,
-
+  initSwiper,
+  initLightGallery,
   acToast,
   closeAllModals,
   initShuffle

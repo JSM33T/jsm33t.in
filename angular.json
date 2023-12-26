@@ -31,6 +31,7 @@
             ],
             "allowedCommonJsDependencies": [
               "aos",
+              "swiper",
               "parallax-js",
               "smooth-scroll",
               "imagesloaded"
