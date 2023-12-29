@@ -16,28 +16,28 @@ export class ShowcaseComponent implements OnInit, AfterViewInit {
     {
       heading: 'Laymaann.in : a webspace/gallery/portfolio',
       description: 'Some description',
-      image:'',
+      image:'laymaann',
       link:'some',
       tech:'Typescript, Vue js, .NET, C#, Razor Pages'
     },
     {
       heading: 'Almondcove.in: personal webspace',
       description: 'A personal webspace to work',
-      image:'',
+      image:'almondcove',
       link:'some',
       tech:'Typescript,Jquery,.NET,C#'
     },
     {
       heading: 'Aome other app',
       description: 'Finance/Donation management system for an organisation to manage monthly transactions with sms and mail integration and a custom auth & permission system',
-      image:'',
+      image:'financessystem',
       link:'some',
       tech:'Typescript,Jquery,.NET,C#'
     },
     {
       heading: 'ERP System Modules',
       description: 'Finance/Donation management system for an organisation to manage monthly transactions with sms and mail integration and a custom auth & permission system',
-      image:'',
+      image:'erp',
       link:'some',
       tech:'Typescript,Jquery,.NET,C#'
     }

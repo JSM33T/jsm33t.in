@@ -19,10 +19,6 @@ export class NavbarComponent {
     {
       link: 'Works',
       location: '/works'
-    },
-    {
-      link: 'Studio',
-      location: '/studio'
     }
   ]
 }
