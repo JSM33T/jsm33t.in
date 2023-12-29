@@ -7,4 +7,22 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  navElements = [
+    {
+      link: 'Home',
+      location: '/'
+    },
+    {
+      link: 'About',
+      location: '/about'
+    },
+    {
+      link: 'Works',
+      location: '/works'
+    },
+    {
+      link: 'Studio',
+      location: '/studio'
+    }
+  ]
 }

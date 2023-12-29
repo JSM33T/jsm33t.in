@@ -8,7 +8,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { BackToTopComponent } from './shared/back-to-top/back-to-top.component';
 import { ModalsComponent } from './shared/modals/modals.component';
-import {LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { HomeComponent } from './home/home.component';
 import { ApiserviceService } from './services/apiservice.service';
 import { HttpClientModule } from '@angular/common/http';

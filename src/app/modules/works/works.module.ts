@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IndexComponent } from './index/index.component';
+import { ShowcaseComponent } from './showcase/showcase.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    component: IndexComponent
+    path : '',
+    component: ShowcaseComponent
   }
 ]
 
 
 @NgModule({
   declarations: [
-    IndexComponent
+    ShowcaseComponent
   ],
   imports: [
     CommonModule,
