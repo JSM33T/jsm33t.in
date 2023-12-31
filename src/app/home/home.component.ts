@@ -48,28 +48,28 @@ export class HomeComponent implements OnInit {
 
   postEmail(userEmail: any) {
     this.loading = true;
-    this.dataService.postData('mailinglist/addmail', {
+    this.dataService.postData('mailinglist/subscribe', {
       email: userEmail,
       origin: "angular test"
     })
       .pipe(
         catchError(error => {
-          console.log(error);
-          if (error.status === 409) {
-            acToast('error', 'Conflict: Email already exists');
-          }
-          return of({ message: null }); // Return an observable with a default response
+          acToast('error', error.message.status);
+          console.log(error)
+           return of({ message: error.error });
         })
       )
       .subscribe(response => {
         this.loading = false;
-        if (response.message !== null) {
-          console.log('Post successful:', response);
-          //acToast('success', response.message);
-          acToast('success', response.message || 'Email added to list'); // Use a default message if response.message is null
+        console.log(response.message.status == 200);
+        if(response.message.status == 200)
+        {
+          acToast('Success','Email added to list');
         }
       });
   }
+
+
 
 
 

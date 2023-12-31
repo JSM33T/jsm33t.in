@@ -82,8 +82,8 @@
         <div class="input-group">
           <span class="input-group-text"><i class="ai-mail"></i></span>
           <input class="form-control" type="email" name="useremail" placeholder="Enter your email" required ngModel
-            readonly />
-          <button class="btn btn-primary disabled" type="submit" [disabled]="loading" [class.pe-none]="loading"
+            />
+          <button class="btn btn-primary" type="submit" [disabled]="loading" [class.pe-none]="loading"
             name="subscribe">
             <span *ngIf="!loading">Submit</span>
             <span *ngIf="loading">

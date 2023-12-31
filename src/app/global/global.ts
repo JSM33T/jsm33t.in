@@ -145,7 +145,7 @@ function acToast(type: string, message: string) {
   // Append the toast element to the body
   // document.body.appendChild(toastElement);
   toastContainer!.appendChild(toastElement);
-  console.log(toastElement);
+  //console.log(toastElement);
   const toast = new bootstrap.Toast(toastElement);
   toast.show();
 
@@ -204,9 +204,6 @@ function themeSwitcher() {
     if (storedTheme) {
       return storedTheme
     }
-
-    // Set default theme to 'light'.
-    // Possible options: 'dark' or system color mode (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
     return 'dark'
   }
 
