@@ -14,32 +14,32 @@ export class ShowcaseComponent implements OnInit, AfterViewInit {
   
   items = [
     {
-      heading: 'Laymaann.in : a webspace/gallery/portfolio',
-      description: 'Some description',
-      image:'laymaann',
-      link:'some',
-      tech:'Typescript, Vue js, .NET, C#, Razor Pages'
-    },
-    {
       heading: 'Almondcove.in: personal webspace',
       description: 'A personal webspace to work',
       image:'almondcove',
-      link:'some',
-      tech:'Typescript,Jquery,.NET,C#'
+      link:'https://almondcove.in',
+      tech:'Typescript,.NET 9,C#,ADO.NET,MS SQL'
     },
     {
-      heading: 'Aome other app',
+      heading: 'Laymaann.in : a webspace/gallery/portfolio',
+      description: 'A JAMSTACK webspace for documentaries and gallery for Laymaann',
+      image:'laymaann',
+      link:'https://laymaann.in',
+      tech:'JASMSTACK - React,NextJS,Contentlayer,Typescript'
+    },
+    {
+      heading: 'Finance management app',
       description: 'Finance/Donation management system for an organisation to manage monthly transactions with sms and mail integration and a custom auth & permission system',
       image:'financessystem',
       link:'some',
-      tech:'Typescript,Jquery,.NET,C#'
+      tech:'Jquery,.NET 7->8,C#,Identity'
     },
     {
       heading: 'ERP System Modules',
-      description: 'Finance/Donation management system for an organisation to manage monthly transactions with sms and mail integration and a custom auth & permission system',
+      description: 'Building ERP modules with robust business logic to handle critical finance data securely and efficiently',
       image:'erp',
       link:'some',
-      tech:'Typescript,Jquery,.NET,C#'
+      tech:'Jquery,.NET 7->8,C#,Identity'
     }
   ]
 

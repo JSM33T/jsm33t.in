@@ -3,7 +3,7 @@ import { acToast, initAos, initParallax, initSmoothScroll } from '../global/glob
 import { ApiserviceService } from '../services/apiservice.service';
 import { NgForm } from '@angular/forms';
 import { catchError, of } from 'rxjs';
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +12,8 @@ import { catchError, of } from 'rxjs';
   providers: [ApiserviceService]
 })
 export class HomeComponent implements OnInit {
-  constructor(private dataService: ApiserviceService) { }
+  responseMessage: string ="";
+  constructor(private dataService: ApiserviceService,private http: HttpClient) { }
 
   loading = false;
 
@@ -38,7 +39,7 @@ export class HomeComponent implements OnInit {
   onSubmit(mailForm: NgForm): void {
     if (mailForm.valid) {
       const userEmail = mailForm.value.useremail;
-      this.postEmail(userEmail);
+      this.submitMail(userEmail);
     }
     else {
       acToast('error', 'invalid email');
@@ -48,13 +49,13 @@ export class HomeComponent implements OnInit {
 
   postEmail(userEmail: any) {
     this.loading = true;
-    this.dataService.postData('mailinglist/subscribe', {
+    this.dataService.postData('https://localhost:7138/api/mailinglist/subscribeext', {
       email: userEmail,
       origin: "angular test"
     })
       .pipe(
         catchError(error => {
-          acToast('error', error.message.status);
+          acToast('error', "api endpoint is temporarily down");
           console.log(error)
            return of({ message: error.error });
         })
@@ -67,6 +68,24 @@ export class HomeComponent implements OnInit {
           acToast('Success','Email added to list');
         }
       });
+  }
+
+  submitMail(userEmail : any) {
+    const payload = {
+      email: userEmail,
+      origin: 'ng new'
+    };
+
+    this.http.post<any>('https://almondcove.in/api/mailinglist/subscribeext', payload).subscribe(
+      (response) => {
+        this.responseMessage = response.success ? 'Mail submitted successfully' : 'Error: ' + 'Email already exists';
+        acToast('info',this.responseMessage);
+      },
+      (error) => {
+        this.responseMessage = 'An error occurred: ' + error.message;
+        acToast('info','Something went wrong');
+      }
+    );
   }
 
 
